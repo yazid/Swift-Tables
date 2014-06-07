@@ -9,7 +9,11 @@ About 180 pages into the Swift Programming Language iBook, I got a little bored 
 - Displaying alerts
 
 With the exception of touching into persistent storage, the above is arguably enough to build some very basic functional apps.  So what does the sample do?
-- First view displays the 
+- First view displays the elements of an array property onto a `UITableView`
+- When selecting a cell, the second view gets pushed onto the `UINavigationController`
+- An alert is displayed informing of the index of the selected row from the first view
+- Write a value into the `UITextField`, click the button, and the second view gets popped off
+- Upon returning to the first view, the `UITextField` value of the second view is displayed in another alert, and replaces the label of the previously selected row
 
 ## Things I Learnt the First Time I Coded in Swift
 
