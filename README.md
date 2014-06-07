@@ -27,19 +27,24 @@ With the exception of touching into persistent storage, the above is arguably en
 ### Storyboards/IBOutlet/IBAction
 
 - Setting up an `IBOutlet` in Swift (just put the tag above your property declaration):
+
   ```
   @IBOutlet
   var tableView: UITableView
   ```
+
 - There's no need to do a `#import "SomeOtherClass.h"` to access those classes anymore. This was apparent when I was trying to cast `segue.destinationViewController` as my custom class in `prepareForSegue` so I could access the properties I had setup in it, but turns out all I had to do was directly cast it like so: `var destinationVC:DetailViewController = segue.destinationViewController as DetailViewController`. Neat!
 - If your `destinationViewController` class needs some custom properties, you may want to make them *optional* (using question marks at the end of the property declaration, e.g. `var delegate: ViewController?`). Otherwise, the compiler is going to complain with an error that those properties are not initialized in `super.init`. If it's possible, setup your `init`s accordingly.
 - If you're reaching another scene via a segue, the View Controller of that other scene needs to have a boilerplate `init(coder)` method or you're going to get a compiler error. This was previously optional in Objective-C. Here's what that looks like:
+
   ```
   init(coder aDecoder: NSCoder!){
       super.init(coder: aDecoder)
   }
   ```
+
 - Setting up an `IBAction` in Swift:
+
   ```
   @IBAction func dismissButtonPressed() {
       ...
@@ -50,6 +55,7 @@ With the exception of touching into persistent storage, the above is arguably en
 
 - Conforming to protocols is pretty easy. Just list them out separated by commas right there at your class definition: `class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DetailViewProtocol {`. No need for angle brackets!
 - To declare a custom protocol, you do this above your class definition:
+
   ```
   protocol DetailViewProtocol {
       func didFinishDetailView(string:String)
@@ -59,6 +65,7 @@ With the exception of touching into persistent storage, the above is arguably en
 ### Alerts
 
 - The `UIAlertView` has been deprecated in iOS 8. You can now display alerts as such:
+
   ```
   var alert = UIAlertController(title: "Alert", message: "You typed \"\(string)\"", preferredStyle: UIAlertControllerStyle.Alert)
   alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
