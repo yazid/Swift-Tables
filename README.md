@@ -62,7 +62,7 @@ This was the absolute first time I coded anything in Swift so I took some notes 
 
   Neat!
 - If your `destinationViewController` class needs some custom properties, you may want to make them *optional* (using question marks at the end of the property declaration, e.g. `var delegate: ViewController?`). Otherwise, the compiler is going to complain with an error that those properties are not initialized in `super.init`. If it's possible, setup your `init`s accordingly.
-- If you're reaching another scene via a segue, the View Controller of that other scene needs to at least have a boilerplate `init(coder)` method or you're going to get a compiler error (more details (here)[http://stackoverflow.com/questions/24036393/fatal-error-use-of-unimplemented-initializer-initcoder-for-class]). Here's what that looks like:
+- If you're reaching another scene via a segue, the View Controller of that other scene needs to at least have a boilerplate `init(coder)` method or you're going to get a compiler error (more details [here](http://stackoverflow.com/questions/24036393/fatal-error-use-of-unimplemented-initializer-initcoder-for-class)). Here's what that looks like:
 
   ```
   init(coder aDecoder: NSCoder!){
